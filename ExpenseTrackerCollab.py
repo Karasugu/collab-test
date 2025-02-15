@@ -39,7 +39,7 @@ def AddExpense(): #include the filter
     def InputNumber():
         while True:
             try:
-                Number = float(Input("What is number of expense?"))
+                Number = float(input("What is number of expense?"))
                 if Number <= 0:
                     print("Please do not enter a nagative number or 0")
                 else:
@@ -48,13 +48,26 @@ def AddExpense(): #include the filter
                 print("Please choose a number")
     def InputCategory():
         #I leave this to group XD
+        while True:
+            try:
+                print("1.FOOD\n2.CLOTHING\n3.HOUSING\n4.TRANSPORT\n5.ENTERTAINMENT")
+                Category = int(input("Enter the number 1-5:"))
+                if Category < 1 or Category > 5:
+                    print("please enter 1-5")
+                else:
+                    return Category
+            except ValueError:
+                print("please choose a valid number")
+
     ExpenseList.append({'Title':InputTitle(),'Date':InputDate(),'Number':InputNumber(),'Category':InputCategory()})
     def SortKey(i):
         return i['Date']
     ExpenseList.sort(key=SortKey)
 def DeletExpense():
     
-def ViewExpesne():
+    
+def ViewExpense():
+    
     
 def QuitSave():
     with open('collab-test/ExpenseData.pkl', 'rb') as data:
@@ -63,7 +76,7 @@ def QuitSave():
 def main():
     while True:
         try:
-            Choice=input(int("Wellcome to Expense Tracker system.\nYou could enter the following numbers\n1. Add new Expense\n2. Delet the expense\n3. View the Expense\n4. Quit and Save"))
+            choice=input(int("Wellcome to Expense Tracker system.\nYou could enter the following numbers\n1. Add new Expense\n2. Delet the expense\n3. View the Expense\n4. Quit and Save"))
             if choice == 1:
                 AddExpense()
             elif choice == 2:
