@@ -1,12 +1,11 @@
 # collab-test
-please make some change to it
-<<<<<<< HEAD
-fgwlkjf-by first collaborator - carlos
 
-=======
-fgwlkjf-by first collaborator
-boooooooo sbgjsbjksjvjna by collab guy 2 (Matthew law)
->>>>>>> 396912630199e35a79c7e033529860d1e02c98e1
+REFLECTION
 
-Wait for my Git research plz
-Robert Si
+1st answer:
+Robert code the main function, add function and the save system that allowed data to be carried on 
+Eason created the github repository, code the InputCategory function, bug fixing, add comments
+Carlos code the view_expense function, bug fixing, add comments
+
+
+2rd answer:
