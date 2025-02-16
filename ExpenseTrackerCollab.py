@@ -1,28 +1,39 @@
 import pickle
+
+#create the list
 ExpenseList=[]
+
+#open saved data in ExpenseList
 with open('collab-test/ExpenseData.pkl', 'rb') as data:
     ExpenseList = pickle.load(data)
+
+#add function, asks for 5 inputs   
+def AddExpense(): 
     
-def AddExpense(): #include the filter
+    #create a title for the event
     def InputTitle():
         while True:
             Title = str(input("What is the title of this expense?"))
             if Title == "":
                 print("Name cannot be empty")  # Ensure event name is not empty
             elif len(Title) >= 50:
-                print("please enter less that 50 characters")
+                print("please enter less that 50 characters") # Ensure event name is not too long
             else:
                 return Title
+            
+    #ask for month
     def InputMonth():
         while True:
             try:
                 Month = int(input("What month you are going to choose?\n1 for January\n2 for February\n3 for March\netc\n"))
-                if Month >= 13 or Month <= 0:
+                if Month >= 13 or Month <= 0: # Ensure input is between 1-12
                     print("Please choose a valid month")
                 else:
                     return Month
             except ValueError:
-                print("Please choose a valid month")
+                print("Please choose a valid month") # Ensure input is a valid number
+                
+    #ask for date
     def InputDate():
         while True:
             try:
@@ -35,7 +46,9 @@ def AddExpense(): #include the filter
                 else:
                     print("Please choose a valid date")
             except ValueError:
-                print("Please choose a valid date")
+                print("Please choose a valid date") # Ensure input is a valid number
+                
+    #ask for amount of expense            
     def InputNumber():
         while True:
             try:
@@ -47,7 +60,6 @@ def AddExpense(): #include the filter
             except:
                 print("Please choose a number")
     def InputCategory():
-        #I leave this to group XD
         while True:
             try:
                 print("1.FOOD\n2.CLOTHING\n3.HOUSING\n4.TRANSPORT\n5.ENTERTAINMENT")
