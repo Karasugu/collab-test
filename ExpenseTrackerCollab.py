@@ -79,6 +79,7 @@ def DeleteExpense():
     
     
 def ViewExpense():
+   #Allows the user to view each category of reminders
    print("Expense Categories:")
    print("1. FOOD")
    print("2. CLOTHING")
@@ -86,6 +87,7 @@ def ViewExpense():
    print("4. TRANSPORT")
    print("5. ENTERTAINMENT")
    print("6. ALL")
+    #The user selects which category of reminders they would like to view. They can also view all reminders at once.
    see_my_expenses = print("Which category of expenses would you like to view?(1-6): ")
    if see_my_expenses == 1:
      return 1 in Category
