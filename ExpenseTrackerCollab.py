@@ -76,6 +76,7 @@ def AddExpense():
     def SortKey(i):
         return i['Date']
     ExpenseList.sort(key=SortKey)
+<<<<<<< HEAD
 #def DeleteExpense():
     
     
@@ -102,6 +103,34 @@ def AddExpense():
    #  return 5 in Category
    #if see_my_expenses == 6:
    #  print(ExpenseList)
+=======
+def DeleteExpense():
+    
+    
+def ViewExpense():
+   #Allows the user to view each category of reminders
+   print("Expense Categories:")
+   print("1. FOOD")
+   print("2. CLOTHING")
+   print("3. HOUSING")
+   print("4. TRANSPORT")
+   print("5. ENTERTAINMENT")
+   print("6. ALL")
+    #The user selects which category of reminders they would like to view. They can also view all reminders at once.
+   see_my_expenses = print("Which category of expenses would you like to view?(1-6): ")
+   if see_my_expenses == 1:
+     return 1 in Category
+   if see_my_expenses == 2:
+     return 2 in Category
+   if see_my_expenses == 3:
+     return 3 in Category
+   if see_my_expenses == 4:
+     return 4 in Category
+   if see_my_expenses == 5:
+     return 5 in Category
+   if see_my_expenses == 6:
+     print(ExpenseList)
+>>>>>>> 4c085e06edceb56df5f054fdc0b0c3f1a1bb9703
     
 def QuitSave():
     with open('collab-test/ExpenseData.pkl', 'rb') as data:
@@ -110,7 +139,11 @@ def QuitSave():
 def main():
     while True:
         try:
+<<<<<<< HEAD
             choice=int(input("Welcome to Expense Tracker system.\nYou could enter the following numbers\n1. Add new Expense\n2. Delet the expense\n3. View the Expense\n4. Quit and Save"))
+=======
+            choice=input(int("Welcome to Expense Tracker system.\nYou could enter the following numbers\n1. Add new Expense\n2. Delet the expense\n3. View the Expense\n4. Quit and Save"))
+>>>>>>> 4c085e06edceb56df5f054fdc0b0c3f1a1bb9703
             if choice == 1:
                 AddExpense()
             elif choice == 2:
