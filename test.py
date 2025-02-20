@@ -1,11 +1,10 @@
 import pickle
 ExpenseList=[
              {
-                 'Month':9,
-                 'Date':20,
+                 'Title':"Bought clothes",
+                 'Date':9.20,
                  'Number':5000,
-                 'Category':1,
-                 'title':"Bought clothes"
+                 'Category':1
              },
              #{
                  
