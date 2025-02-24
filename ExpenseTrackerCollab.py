@@ -76,9 +76,20 @@ def AddExpense():
     def SortKey(i):
         return i['Date']
     ExpenseList.sort(key=SortKey)
-    print(ExpenseList)
+    Save()
 
-#def DeleteExpense():
+def DeleteExpense():
+    TitleDelete = input("What title of the expense you want to delete")
+    global ExpenseList
+    for f in ExpenseList:
+        if TitleDelete == f['Title']:
+            ExpenseList = [e for e in ExpenseList if e['Title'] != TitleDelete]
+            Save()
+            print("Succefully deleted the expense")
+        else:
+            continue
+    else:
+        print("Expense not found")
     
 def ViewExpense():
     #Allows the user to view each category of reminders
@@ -90,27 +101,38 @@ def ViewExpense():
     print("5. ENTERTAINMENT")
     print("6. ALL")
     #The user selects which category of reminders they would like to view. They can also view all reminders at once.
-    print(sum(b['Number'] for b in [a for a in ExpenseList if a['Category'] == int(input("Which category of expenses would you like to view?(1-6): "))]))
+    while True:
+        try:
+            UserChoice = int(input("Which category of expenses would you like to view?(1-6): "))
+            if 1<=UserChoice<=5:
+                TemList = [a for a in ExpenseList if a['Category'] == UserChoice]
+            elif UserChoice == 6:
+                TemList = [c for c in ExpenseList]
+            else:
+                print("please choose from the list")
+            print(TemList)
+            print("Totally $",sum(b['Number'] for b in TemList))
+            break
+        except ValueError:
+            print("please choose a valid number")
     
-def QuitSave():
-    with open('collab-test/ExpenseData.pkl', 'rb') as data:
+def Save():
+    with open('collab-test/ExpenseData.pkl', 'wb') as data:
         pickle.dump(ExpenseList,data)
-    return "The data has been saved. The funtion has been closed"
+    return ("The data has been saved. The funtion has been closed")
 def main():
     while True:
         #try:
-            choice=int(input("Welcome to Expense Tracker system.\nYou could enter the following numbers\n1. Add new Expense\n2. Delet the expense\n3. View the Expense\n4. Quit and Save"))
+            choice=int(input("Welcome to Expense Tracker system.\nYou could enter the following numbers\n1. Add new Expense\n2. Delet the expense\n3. View the Expense"))
             if choice== 1:
                 AddExpense()
             elif choice == 2:
                 DeleteExpense()
             elif choice == 3:
                 ViewExpense()
-            elif choice == 4:
-                return QuitSave()
             else:
                 print("Please choose from the list")
         #except:
             #print("Please enter a integer from the list")
-    #print(ExpenseList)
+    print(ExpenseList)
 main()
