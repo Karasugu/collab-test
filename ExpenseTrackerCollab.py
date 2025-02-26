@@ -141,8 +141,9 @@ def Save():
     return ("The data has been saved. The funtion has been closed")
 def main():
     while True:
-        #try:
-            choice=int(input("Welcome to Expense Tracker system.\nYou could enter the following numbers\n1. Add new Expense\n2. Delet the expense\n3. View the Expense"))
+            #allow user to choose action thour
+            print("Welcome to Expense Tracker system.\nYou could enter the following numbers\n1. Add new Expense\n2. Delet the expense\n3. View the Expense")
+            choice=int(input("enter your choice of action 1-3"))
             if choice== 1:
                 AddExpense()
             elif choice == 2:
@@ -151,7 +152,5 @@ def main():
                 ViewExpense()
             else:
                 print("Please choose from the list")
-        #except:
-            #print("Please enter a integer from the list")
-    print(ExpenseList)
+        
 main()
