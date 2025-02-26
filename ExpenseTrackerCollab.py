@@ -117,17 +117,17 @@ def ViewExpense():
             UserChoice = int(input("Which category of expenses would you like to view?(1-6): "))
             #if user input is between 1-5, find the corrisponding Category
             if 1<=UserChoice<=5:
-                TemList = [a for a in ExpenseList if a['Category'] == UserChoice]
+                DesiredCategory = [a for a in ExpenseList if a['Category'] == UserChoice]
             #if user input 6 (all), find ExpenseList
             elif UserChoice == 6:
-                TemList = [c for c in ExpenseList]
+                DesiredCategory = [c for c in ExpenseList]
             #run if user input is invalid
             else:
                 print("please choose from the list")
-            #print the found Catergory (TemList)
-            print(TemList)
+            #print the found Catergory (DesiredCategory)
+            print(DesiredCategory)
             #display totle amound of money spend in the found Catergory
-            print("Totally $",sum(b['Number'] for b in TemList))
+            print("Totally $",sum(b['Number'] for b in DesiredCategory))
             break
         #run when error occured
         except ValueError:
